@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "webapp.name" . }}-cm
+  namespace: {{ .Release.Namespace }}
+data:
+  KAFKA_TOPIC: {{ .Values.configVariables.kafkaTopic | quote }}
+  KAFKA_HOST: {{ .Values.configVariables.kafkaHost | quote }}
+  ELASTIC_HOST: {{ .Values.configVariables.elasticHost | quote }}
+  ELASTIC_PORT: {{ .Values.configVariables.elasticPort | quote }}
